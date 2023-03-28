@@ -1,0 +1,10 @@
+﻿@model Bird;
+@{
+    ViewData["Title"] = "Breeding";
+}
+
+<h1 class="text-center">Breeding Birds</h1>
+
+<form method="POST" asp-controller="Bird" asp-action="Create" class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary my-2">Random your bird</button>
+</form>

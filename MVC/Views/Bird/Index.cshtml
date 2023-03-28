@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Bird>;
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1 class="text-center">Birds</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Red</th>
+            <th>Green</th>
+            <th>Blue</th>
+            <th>Price ($)</th>
+            <th>Sell</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Birds in Model)
+        {
+            <tr>
+                <td>@Birds.Id</td>
+                <td>@Birds.Red</td>
+                <td>@Birds.Green</td>
+                <td>@Birds.Blue</td>
+                <td>@Birds.Price</td>
+                <td><a class="btn btn-danger"
+                    asp-controller="Bird"
+                    asp-action="Delete"
+                   asp-route-id="@Birds.Id"
+                       onclick="return confirm('คุณต้องการขายนกตัวที่ @Birds.Id หรือไม่ ?')">Sell</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
